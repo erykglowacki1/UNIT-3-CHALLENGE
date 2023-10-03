@@ -892,7 +892,7 @@ GameObject:
   - component: {fileID: 1292757559}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1013,7 +1013,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672443118734094}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1051,6 +1051,7 @@ MonoBehaviour:
   moneySound: {fileID: 8300000, guid: af9f934eb4288464eb120a5857921cc3, type: 3}
   explodeSound: {fileID: 8300000, guid: 774ebc5c074ce4695b7cc310fbd44087, type: 3}
   bouncySound: {fileID: 8300000, guid: ccb9b31174a3a43709a113a9c7cf4252, type: 3}
+  maxHeight: 9.5
 --- !u!1001 &2097113909
 PrefabInstance:
   m_ObjectHideFlags: 0

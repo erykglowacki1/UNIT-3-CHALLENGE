@@ -19,6 +19,7 @@ public class PlayerControllerX : MonoBehaviour
     public AudioClip bouncySound;
     private bool isLowEnough = true;
     public float maxHeight = 10.0f;
+    public bool canBounce = true;
    
     // Start is called before the first frame update
     void Start()
@@ -39,18 +40,29 @@ public class PlayerControllerX : MonoBehaviour
 
         // While space is pressed and player is low enough, float up
         //kind of works goes above the y position if you hold the spacebar
-        if (Input.GetKey(KeyCode.Space) && !gameOver && isLowEnough)
+        if (Input.GetKey(KeyCode.Space) && !gameOver)
         {
             if (transform.position.y < maxHeight)
             {
                 playerRb.AddForce(Vector3.up * floatForce);
             }
+            else
+                canBounce = false;
         }
     }
 
     private void OnCollisionEnter(Collision other)
     {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            if (canBounce) {
+                // Play the bounce sound effect
+                playerAudio.PlayOneShot(bouncySound, 1.0f);
 
+                // Add an impulse force upward to simulate a bounce
+                playerRb.AddForce(Vector3.up * 10, ForceMode.Impulse);
+            }
+        }
 
 
         // if player collides with bomb, explode and set gameOver to true

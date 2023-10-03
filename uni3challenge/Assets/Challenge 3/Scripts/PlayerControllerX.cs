@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerControllerX : MonoBehaviour
 {
@@ -17,8 +15,8 @@ public class PlayerControllerX : MonoBehaviour
     public AudioClip moneySound;
     public AudioClip explodeSound;
     public AudioClip bouncySound;
-    private bool isLowEnough = true;
-    public float maxHeight = 10.0f;
+
+    public float maxHeight = 15.0f;
     public bool canBounce = true;
    
     // Start is called before the first frame update
@@ -42,12 +40,11 @@ public class PlayerControllerX : MonoBehaviour
         //kind of works goes above the y position if you hold the spacebar
         if (Input.GetKey(KeyCode.Space) && !gameOver)
         {
-            if (transform.position.y < maxHeight)
-            {
-                playerRb.AddForce(Vector3.up * floatForce);
-            }
-            else
-                canBounce = false;
+            playerRb.AddForce(Vector3.up * floatForce);
+        }
+        else if (gameOver)
+        {
+            canBounce = false;
         }
     }
 
